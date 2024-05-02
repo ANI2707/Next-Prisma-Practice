@@ -28,7 +28,7 @@ const DrinkPage:React.FC<Props> = async ({params}) => {
     
   return (
     <div>
-        {userInfo && (
+        {/* {userInfo && (
                 <>
                     <h1>{userInfo?.name}</h1>
                     <p>{userInfo?.company}</p>
@@ -36,7 +36,7 @@ const DrinkPage:React.FC<Props> = async ({params}) => {
                     <p>{userInfo?.blog}</p>
                     <p>{userInfo?.public_repos}</p>
                 </>
-            )}
+            )} */}
         
 
         
