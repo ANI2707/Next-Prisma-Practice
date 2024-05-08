@@ -1,7 +1,8 @@
 "use client";
 import { createTask } from "@/utils/actions";
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormStatus,useFormState } from "react-dom";
+import toast from "react-hot-toast";
 
 const initialState:any={
   message:null,
@@ -20,10 +21,20 @@ const SubmitBtn = () => {
   );
 };
 const TodoForm = () => {
-  const [state,formAction]=useFormState(createTask,initialState)
+  const [state,formAction]=useFormState(createTask,initialState);
+  useEffect(()=>{
+    console.log("toast returned");
+    
+    if(state.status === 400){
+      toast.error(state.message);
+    }
+    else if(state.message==200){
+      toast.success("Task Created");
+    }
+  },[state])
   return (
     <form action={createTask}>
-      {state.message ? <p className="mb-2">{state.message}</p> : null}
+      {/* {state.message ? <p className="mb-2">{state.message}</p> : null} */}
       <div className="join w-full mb-8">
         <input
           type="text"

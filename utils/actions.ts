@@ -3,7 +3,7 @@
 import prisma from "./db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import z, { string } from "zod";
+import z from "zod";
 
 export const createTask = async (formData: any) => {
   await new Promise((resolve) => {
@@ -28,10 +28,10 @@ export const createTask = async (formData: any) => {
 
     revalidatePath("todo-list");
 
-    return { message: "Success !" };
+    return { message: "Success !" ,status:200};
   } catch (error) {
     if (error instanceof Error) {
-      return { message: error.message || "Error !" };
+      return { message: error.message || "Error !",status:400 };
     } else {
       return { message: "Unknown error occurred !" };
     }
