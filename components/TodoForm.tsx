@@ -7,6 +7,9 @@ import toast from "react-hot-toast";
 const initialState:any={
   message:null,
 }
+const handleToast =()=>{
+  toast.success("Task Added");
+}
 const SubmitBtn = () => {
   const { pending } = useFormStatus();
   return (
@@ -14,6 +17,7 @@ const SubmitBtn = () => {
       type="submit"
       className="btn btn-primary join-item"
       disabled={pending}
+      onClick={handleToast}
     >
       
       {pending ? "crating...":"Create Task"}
