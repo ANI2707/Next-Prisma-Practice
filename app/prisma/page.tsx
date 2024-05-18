@@ -4,11 +4,11 @@ import prisma from '@/utils/db';
 
 const getAllTasks = async()=>{
   //Add task
-  await prisma.task.create({
-    data:{
-      content:"buy car"
-    }
-  })
+  // await prisma.task.create({
+  //   data:{
+  //     content:"buy car"
+  //   }
+  // })
 
 
   //Update Task
